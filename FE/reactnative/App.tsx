@@ -16,7 +16,9 @@ import {
   LearnMoreLinks,
   ReloadInstructions
 } from 'react-native/Libraries/NewAppScreen'
+
 import Login from './src/views/Login/Login'
+import Home from './src/views/Home/Home'
 
 type SectionProps = PropsWithChildren<{
   title: string
@@ -63,7 +65,7 @@ function App(): JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <Login />
+      <Home />
     </SafeAreaView>
   )
 }

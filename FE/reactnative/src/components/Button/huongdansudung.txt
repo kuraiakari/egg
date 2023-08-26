@@ -1,0 +1,10 @@
+data reward {
+    content: require, string;
+    data: string  (data send to when onClick/onPress btn)
+    setState: (messgenger after click btn)
+    //disable: boolen default false (when need disable btn)
+
+    //css
+    backgroundColor: string default '#00B578'
+    fontSize: number default 24
+}

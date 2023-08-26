@@ -1,0 +1,10 @@
+test UI
+Hien thi thong bao loi neu thieu mssv khi bam vao btn (pass)
+Hien thi thong ba loi neu thieu pass khi bam vao btn (pass)
+Hien thi thong bao loi neu co sau khi call API
+
+//maybe
+Hiden error when blur input
+
+test logic
+send data to server when click btn 'Sign in'
