@@ -12,8 +12,10 @@
   "dependencies": {
     "@ant-design/icons-react-native": "^2.3.2",
     "@ant-design/react-native": "^5.0.4",
+    "pod-install": "^0.1.39",
     "react": "18.2.0",
-    "react-native": "0.72.4"
+    "react-native": "0.72.4",
+    "react-native-vision-camera": "^2.15.6"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
