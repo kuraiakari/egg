@@ -6,10 +6,10 @@ interface fieldInput {
 interface data {
   link_URL: string
   dataSend: Array<fieldInput>
+  navigate: string
 }
-const handleSendData = (data: data, setMessError: any) => {
+const handleSendData = (data: data, setMessError: any, setURLnavigate: any) => {
   for (let value of data.dataSend) {
-    console.log(value)
     if (value.custome_require && !value.value) {
       setMessError(`${value.name} khong duoc de trong`)
       return
@@ -17,6 +17,7 @@ const handleSendData = (data: data, setMessError: any) => {
     setMessError('')
   }
   // call Api
+  if (data.navigate) setURLnavigate(data.navigate)
 }
 
 export default handleSendData

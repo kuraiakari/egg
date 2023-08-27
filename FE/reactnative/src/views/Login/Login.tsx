@@ -11,7 +11,7 @@ const Login = () => {
   //     setDisable(true)
   //   }
   const data = {
-    link_UFRL: 'assa',
+    link_URL: 'assa',
     dataSend: [
       {
         name: 'mssv',
@@ -23,7 +23,8 @@ const Login = () => {
         value: password,
         custome_require: true
       }
-    ]
+    ],
+    navigate: '/home'
   }
   const [messError, setMessError] = useState('')
   return (

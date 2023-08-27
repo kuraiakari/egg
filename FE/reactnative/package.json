@@ -15,7 +15,8 @@
     "pod-install": "^0.1.39",
     "react": "18.2.0",
     "react-native": "0.72.4",
-    "react-native-vision-camera": "^2.15.6"
+    "react-native-vision-camera": "^2.15.6",
+    "react-router-native": "^6.15.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
