@@ -11,7 +11,7 @@ const Login = () => {
   //     setDisable(true)
   //   }
   const data = {
-    link_URL: 'assa',
+    link_API: 'assa',
     dataSend: [
       {
         name: 'mssv',

@@ -4,7 +4,7 @@ interface fieldInput {
   custome_require: boolean
 }
 interface data {
-  link_URL: string
+  link_API: string
   dataSend: Array<fieldInput>
   navigate: string
 }
@@ -16,7 +16,20 @@ const handleSendData = (data: data, setMessError: any, setURLnavigate: any) => {
     }
     setMessError('')
   }
-  // call Api
+  // const dataTest = {
+  //   mssv: data.dataSend[0].value,
+  //   password: data.dataSend[1].value
+  // }
+  // fetch('http://192.168.1.2:8000/login', {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //     // 'Content-Type': 'application/x-www-form-urlencoded',
+  //   },
+  //   body: JSON.stringify(dataTest)
+  // })
+  // .then((reponse) => reponse.json())
+  // .then((data) => console.log(data))
   if (data.navigate) setURLnavigate(data.navigate)
 }
 

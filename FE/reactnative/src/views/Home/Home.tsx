@@ -8,12 +8,16 @@ import {
   StyleSheet,
   TouchableOpacity,
   Dimensions,
-  ImageBackground
+  ImageBackground,
+  PermissionsAndroid
 } from 'react-native'
 import { InputItem, WhiteSpace, WingBlank } from '@ant-design/react-native'
+
 import { Camera, useCameraDevices } from 'react-native-vision-camera'
+import Geolocation from 'react-native-geolocation-service'
 
 const Home = () => {
+  const { width, height } = Dimensions.get('window')
   const camera = useRef<Camera>(null)
   const devices = useCameraDevices()
   const device = devices.front
@@ -21,23 +25,47 @@ const Home = () => {
   const [showCamera, setShowCamera] = useState(false)
   const [imageSource, setImageSource] = useState('')
 
-  const { width, height } = Dimensions.get('window')
-
+  const [location, setLocation] = useState<any>(false)
+  const getLocation = () => {
+    Geolocation.getCurrentPosition(
+      (position) => {
+        setLocation(position)
+      },
+      (error) => {
+        setLocation(false)
+      },
+      { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
+    )
+  }
+  console.log(location)
   useEffect(() => {
     const getPermission = async () => {
       const permission = await Camera.requestCameraPermission()
       if (permission === 'denied') await Linking.openSettings()
+      //handle after refuse
+      const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION, {
+        title: 'Geolocation Permission',
+        message: 'Can we access your location?',
+        buttonNeutral: 'Ask Me Later',
+        buttonNegative: 'Cancel',
+        buttonPositive: 'OK'
+      })
+      if (granted === 'granted') {
+        console.log('You can use Geolocation')
+        getLocation()
+      } else {
+        console.log('You cannot use Location')
+      }
     }
     getPermission()
   }, [])
 
   if (device == null) {
-    return <Text> Camre not available </Text>
+    return <Text> Camera not available </Text>
   }
   const capturePhoto = async () => {
     if (camera.current !== null) {
       const photo = await camera.current.takePhoto({})
-      console.log(photo)
       setImageSource(photo.path)
       setShowCamera(false)
     }

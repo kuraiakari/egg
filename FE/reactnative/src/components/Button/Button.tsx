@@ -33,7 +33,7 @@ const CustomButton = ({ content, ...props }: data) => {
         }
       ]}
       onPress={() => handleSendData(props.data, props.setMessError, setURLnavigate)}
-      // disabled={disable
+      // disabled={disable}
     >
       <Text style={[styles.fontRubik, { fontSize }]}>{content}</Text>
     </Button>

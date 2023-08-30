@@ -6,7 +6,8 @@ const Router = () => {
   return (
     <NativeRouter>
       <Routes>
-        <Route path='/' element={<Login />} />
+        <Route path='/' element={<Home />} />
+        {/* for test */}
         <Route path='/home' element={<Home />} />
       </Routes>
     </NativeRouter>
