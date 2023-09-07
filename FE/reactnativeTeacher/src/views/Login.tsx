@@ -17,6 +17,21 @@ const LoginScreen = () => {
       setMessError('Không để trống password')
       return
     }
+    const dataSend = {
+      email: msgv,
+      password
+    }
+    console.log(dataSend)
+    fetch('http://54.169.192.125:8000/teacher_login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify(dataSend)
+    })
+      .then((reponse) => reponse.json())
+      .then((data) => console.log(data))
   }
   return (
     <SafeAreaView style={styles.fullScreen}>

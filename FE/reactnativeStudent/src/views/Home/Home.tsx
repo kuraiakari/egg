@@ -25,7 +25,8 @@ import {
   getConnectionInfo,
   sendMessage,
   createGroup,
-  receiveMessage
+  receiveMessage,
+  subscribeOnPeersUpdates
 } from 'react-native-wifi-p2p'
 
 const Home = () => {
@@ -78,7 +79,7 @@ const Home = () => {
         buttonPositive: 'OK'
       })
       console.log(
-        granted === PermissionsAndroid.RESULTS.GRANTED
+        grant === PermissionsAndroid.RESULTS.GRANTED
           ? 'You can use the p2p mode'
           : 'Permission denied: p2p mode will not work'
       )
@@ -106,8 +107,8 @@ const Home = () => {
     })
   }
   const connectToFirstDevice = () => {
-    console.log('Connect to: ', devicesConnect.devices[0])
-    connect(devicesConnect.devices[0].deviceAddress)
+    console.log('Connect to: ', '8e:f5:a3:f3:a3:ef')
+    connect('8e:f5:a3:f3:a3:ef')
       .then(() => console.log('Successfully connected'))
       .catch((err) => console.error('Something gone wrong. Details: ', err))
   }

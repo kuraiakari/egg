@@ -7,7 +7,7 @@
 
 import React, { useEffect } from 'react'
 import type { PropsWithChildren } from 'react'
-import { SafeAreaView, StatusBar, StyleSheet, Text, useColorScheme, View } from 'react-native'
+import { Dimensions, SafeAreaView, StatusBar, StyleSheet, Text, useColorScheme, View } from 'react-native'
 
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 
@@ -16,43 +16,16 @@ import Router from './src/router/Router'
 type SectionProps = PropsWithChildren<{
   title: string
 }>
-
-function Section({ children, title }: SectionProps): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark'
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black
-          }
-        ]}
-      >
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark
-          }
-        ]}
-      >
-        {children}
-      </Text>
-    </View>
-  )
-}
+const { width, height } = Dimensions.get('window')
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark'
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter
+    backgroundColor: Colors.lighter
   }
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaView style={[backgroundStyle, { height: height }]}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}

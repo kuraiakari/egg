@@ -28,7 +28,7 @@ const Login = () => {
   }
   const [messError, setMessError] = useState('')
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ justifyContent: 'center' }}>
       <WingBlank>
         <Text style={[styles.header, styles.fontRubik]}>Đăng nhập</Text>
         <WhiteSpace />
@@ -59,7 +59,6 @@ const styles = StyleSheet.create({
     color: '#000'
   },
   header: {
-    fontSize: 28,
-    backgroundColor: '#fff'
+    fontSize: 28
   }
 })
